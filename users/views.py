@@ -30,7 +30,7 @@ class UserViewSet(viewsets.ModelViewSet):
         if request.method == 'GET':
             serializer = UserSerializer(user)
             return Response(data=serializer.data, status=status.HTTP_200_OK)
-        if request.method == 'PATCH':
+        elif request.method == 'PATCH':
             serializer = UserSerializer(user, data=request.data, partial=True)
             if serializer.is_valid():
                 serializer.save()
@@ -39,7 +39,6 @@ class UserViewSet(viewsets.ModelViewSet):
                     status=status.HTTP_200_OK
                 )
             return Response(data=serializer.errors, status=status.HTTP_200_OK)
-        return
 
 
 @api_view(['POST', ])
