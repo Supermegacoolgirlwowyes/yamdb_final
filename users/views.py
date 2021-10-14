@@ -39,6 +39,7 @@ class UserViewSet(viewsets.ModelViewSet):
                     status=status.HTTP_200_OK
                 )
             return Response(data=serializer.errors, status=status.HTTP_200_OK)
+        return
 
 
 @api_view(['POST', ])
