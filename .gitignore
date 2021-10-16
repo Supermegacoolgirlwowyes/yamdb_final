@@ -146,7 +146,12 @@ dmypy.json
 .mypy_cache
 
 # папки со статикой и медиа
-static/
+static/*
+!static/redoc.yaml
 posts/static/
 media/
 
+# миграции
+api/migrations/*
+!api/migrations/0001_squashed_0002_auto_20211012_1907.py
+!api/migrations/__init__.py
