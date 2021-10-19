@@ -50,12 +50,13 @@ jobs:
     steps:
       - name: copy docker-compose.yaml and nginx.conf files
         uses: appleboy/scp-action@master
-        with:
+        env:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
           passphrase: ${{ secrets.SSH_PASSPHRASE }}
-          source: "requirements.txt"
+        with:
+          source: "nginx/nginx.conf,docker-compose.yaml"
           target: "/home/irinabalerina/"
       - name: executing remote ssh commands to deploy
         uses: appleboy/ssh-action@master
