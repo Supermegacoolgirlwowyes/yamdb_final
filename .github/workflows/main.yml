@@ -51,8 +51,8 @@ jobs:
       - run: mkdir ~/artifacts
       - uses: actions/download-artifact@v2
         with:
-        name: artifacts
-        path: artifacts
+          name: artifacts
+          path: artifacts
 
       - name: copy docker-compose.yaml and nginx.conf files
         uses: appleboy/scp-action@v0.0.1
