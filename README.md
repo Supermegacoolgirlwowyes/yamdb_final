@@ -77,9 +77,9 @@ Whenever you need to apply your updates to the project, push them to the master 
 
 ## Authors
 
+* **Irina Egorova** - *Comments and Reviews, Dockerizing, Project Infrastructure* - [Supermegacoolgirlwowyes](https://github.com/Supermegacoolgirlwowyes)
 * **Andrey Zhelezo** - *Users and Auth* - [Azhelezo](https://github.com/azhelezo)
 * **Dmitriy Belokon** - *Titles, Categories and Genres* - [Mezander](https://github.com/Mezander)
-* **Irina Egorova** - *Comments and Reviews, Dockerizing, Project Infrastructure* - [Supermegacoolgirlwowyes](https://github.com/Supermegacoolgirlwowyes)
 
 
 ## License
