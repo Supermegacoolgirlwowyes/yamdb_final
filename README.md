@@ -8,36 +8,41 @@ These instructions will get you a copy of the project up and running on your ser
 
 ### Prerequisites
 
-Make sure your system is ready for running the project. Check if you have Git and Docker installed:
+Make sure your system is ready for running the project. Check if you have Git installed localy and Docker with Docker-compose installed on your server:
 ```
 git version
+```
+```
 docker --version
+docker-compose --version
 ```
-If not, follow this link for [git](https://github.com/git-guides/install-git) installation manual. Or this one to install [docker](https://docs.docker.com/get-docker).
+If not, follow this link for [git](https://github.com/git-guides/install-git) installation manual. Or these ones to install [docker](https://docs.docker.com/get-docker) and [docker-compose](https://docs.docker.com/compose/install/).
 
-Navigate to your working directory and clone the project from GitHub. 
+You may want to cusotmize the project at some point later. To be able to do so, fork from the original repository first.
+[Original Repository on GitHub](https://github.com/Supermegacoolgirlwowyes/final_yamdb.git). While there, create a new workflow - you will need it later on.
+
+Navigate to the working directory on your local machine and clone the project from the forked version. 
 
 ```
-git clone https://github.com/Supermegacoolgirlwowyes/final_yamdb.git
+git clone https://github.com/<your_github_name>/final_yamdb.git
 ```
 
 ### Installing
 
-Find included **.env.template** in the main project directory. Make a renamed copy.
+Locally make a copy of the included **.env.template** and name it **.env**. 
 
 ```
 cp .env.template .env
 ```
+Declare your own environment variables in **.env** and save changes. Upload **.env**, **docker-compose.yaml** and **nginx/nginx.conf** to your server.
 
-Declare your own environment variables in **.env** and save changes.
-
-Run the containers with the following command.
+You are now set up to run the containers. Log in to your server and run the following command:
 
 
 ```
 docker-compose up -d --build
 ```
-The "-d" flag will run the containers in a detached mode and will let you work in the same tab. And "--build" will build a new image from the Dockerfile before running the containers.
+This command will pull up the App, Postgres Database and Nginx server from Docker Hub and run the containers. The "-d" flag will make them run in a detached mode and will let you keep working in the same tab.
 
 Once the containers are running:
 (i) migrate the models to your newly created database, (ii) create superuser, (iii) load initial data from fixtures.json and (iv) collect static files into designated folder. 
@@ -49,11 +54,17 @@ docker-compose exec web python manage.py loaddata fixtures.json
 docker-compose exec web python manage.py collectstatic --no-input
 ```
 
-Your project is running locally at [127.0.0.1](127.0.0.1).
+Now your project is running at **your.server.ip.address**.
 
-Django admin interface at [127.0.0.1/admin](127.0.0.1/admin).
+Django admin interface is available at **<ip_address>/admin**. Yamdb documentation is available at **<ip_address>/redoc**.
 
-Yamdb documentation is available at [127.0.0.1/redoc](127.0.0.1/redoc).
+### Updating
+
+This project is ready for Continuois Integration.
+
+Copy code from **yamdb_workflow.yml** file to the earlier created **main.yml**. Set up environment variables using GitHub secrets (Settings > Secrets).
+
+Whenever you need to apply your updates to the project, push them to the master branch. The workflow will automatically run the tests, create new Docker image, upload it to the DockerHub and Deploy your project. If the workflow is successful, you will receive a confirmation message on Telegram. Sweet :)
 
 
 ## Built With
