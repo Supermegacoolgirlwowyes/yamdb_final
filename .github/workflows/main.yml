@@ -57,7 +57,7 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           passphrase: ${{ secrets.SSH_PASSPHRASE }}
           source: "docker-compose.yaml, nginx/nginx.conf"
-          target: "/home/irinabalerina/yamdb_final"
+          target: "/home/irinabalerina"
       - name: executing remote ssh commands to deploy
         uses: appleboy/ssh-action@master
         with:
@@ -67,7 +67,6 @@ jobs:
           passphrase: ${{ secrets.SSH_PASSPHRASE }}
           stack_file_name: docker-compose.yaml
           script: |
-            cd yamdb_final
             sudo docker-compose stop
             sudo docker-compose rm web
             sudo docker image rm irinabalerina/yamdb_final
