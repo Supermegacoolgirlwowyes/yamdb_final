@@ -8,7 +8,7 @@ These instructions will get you a copy of the project up and running on your ser
 
 ### Prerequisites
 
-Make sure your system is ready for running the project. Check if you have Git installed localy and Docker with Docker-compose installed on your server:
+Make sure your system is ready for running the project. Check if you have Git installed locally and Docker with Docker-compose installed on your server:
 ```
 git version
 ```
@@ -18,8 +18,7 @@ docker-compose --version
 ```
 If not, follow this link for [git](https://github.com/git-guides/install-git) installation manual. Or these ones to install [docker](https://docs.docker.com/get-docker) and [docker-compose](https://docs.docker.com/compose/install/).
 
-You may want to cusotmize the project at some point later. To be able to do so, fork from the original repository first.
-[Original Repository on GitHub](https://github.com/Supermegacoolgirlwowyes/final_yamdb.git). While there, create a new workflow - you will need it later on.
+You may want to customize the project at some point in the future. To be able to do so, fork from the [GitHub Original Repository](https://github.com/Supermegacoolgirlwowyes/final_yamdb.git) first. While there, create a new workflow - you will need it later on.
 
 Navigate to the working directory on your local machine and clone the project from the forked version. 
 
@@ -40,18 +39,15 @@ You are now set up to run the containers. Log in to your server and run the foll
 
 
 ```
-docker-compose up -d --build
+docker-compose up -d
 ```
-This command will pull up the App, Postgres Database and Nginx server from Docker Hub and run the containers. The "-d" flag will make them run in a detached mode and will let you keep working in the same tab.
+This command will pull up the App, Postgres Database and Nginx server images from Docker Hub and run the containers. The '-d' flag will make them run in a detached mode and will let you keep working in the same tab.
 
-Once the containers are running:
-(i) migrate the models to your newly created database, (ii) create superuser, (iii) load initial data from fixtures.json and (iv) collect static files into designated folder. 
+Migrations will be applied and static files will be collected into a designated folder automatically. You only need to create a superuser and load initial data (*optional). 
 
 ```
-docker-compose exec web python manage.py migrate --noinput
 docker-compose exec web python manage.py createsuperuser
 docker-compose exec web python manage.py loaddata fixtures.json
-docker-compose exec web python manage.py collectstatic --no-input
 ```
 
 Now your project is running at **your.server.ip.address**.
@@ -64,7 +60,7 @@ This project is ready for Continuois Integration.
 
 Copy code from **yamdb_workflow.yml** file to the earlier created **main.yml**. Set up environment variables using GitHub secrets (Settings > Secrets).
 
-Whenever you need to apply your updates to the project, push them to the master branch. The workflow will automatically run the tests, create new Docker image, upload it to the DockerHub and Deploy your project. If the workflow is successful, you will receive a confirmation message on Telegram. Sweet :)
+Whenever you need to apply your updates to the project, push them to the master branch. The workflow will automatically run the tests, create new Docker image, upload it to the DockerHub and Deploy your project. If the workflow runs successfully, you will receive a confirmation message on Telegram. Sweet :)
 
 
 ## Built With
@@ -77,12 +73,11 @@ Whenever you need to apply your updates to the project, push them to the master 
 
 ## Authors
 
-* **Irina Egorova** - *Comments and Reviews, Dockerizing, Project Infrastructure* - [Supermegacoolgirlwowyes](https://github.com/Supermegacoolgirlwowyes)
-* **Andrey Zhelezo** - *Users and Auth* - [Azhelezo](https://github.com/azhelezo)
+* **Irina Balerina** - *Comments and Reviews, Dockerizing, Project Infrastructure, Continuous Integration* - [Supermegacoolgirlwowyes](https://github.com/Supermegacoolgirlwowyes)
+* **Andrey Zhelezo** - *Users and Auth* - [Azhelezo](https://github.com/azhelezo), [Supermegacoolgirlwowyes](https://github.com/Supermegacoolgirlwowyes)
 * **Dmitriy Belokon** - *Titles, Categories and Genres* - [Mezander](https://github.com/Mezander)
 
 
 ## License
 
 This product is not real. Nothing is real.
-
