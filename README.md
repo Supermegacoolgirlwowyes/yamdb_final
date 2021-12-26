@@ -73,8 +73,8 @@ Whenever you need to implement your updates to the project, push them to the mas
 
 ## Authors
 
-* **Irina Balerina** - *Comments and Reviews, Dockerizing, Project Infrastructure, Continuous Integration* - [Supermegacoolgirlwowyes](https://github.com/Supermegacoolgirlwowyes)
-* **Andrey Zhelezo** - *Users and Auth* - [Azhelezo](https://github.com/azhelezo), [Supermegacoolgirlwowyes](https://github.com/Supermegacoolgirlwowyes)
+* **Irina Balerina** - *Users and Auth, Comments and Reviews, Dockerizing, Project Infrastructure, Continuous Integration* - [Supermegacoolgirlwowyes](https://github.com/Supermegacoolgirlwowyes)
+* **Andrey Zhelezo** - *Users and Auth* - [Azhelezo](https://github.com/azhelezo)
 * **Dmitriy Belokon** - *Titles, Categories and Genres* - [Mezander](https://github.com/Mezander)
 
 
