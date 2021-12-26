@@ -2,6 +2,11 @@
 ![example workflow](https://github.com/supermegacoolgirlwowyes/yamdb_final/actions/workflows/main.yml/badge.svg)
 
 Yamdb service provides its users an access to the whole world of criticizing something that other people have created. Let's admit, we all love it.
+
+### Yamdb API
+
+Current version of Yamdb API is available at www.irinabalerina.tk/api/v1
+
 ### Getting Started
 
 These instructions will get you a copy of the project up and running on your server for development, testing or production purposes.
