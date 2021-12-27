@@ -2,7 +2,7 @@ import os
 import secrets
 from datetime import timedelta
 
-from decouple import Csv, config
+from decouple import config
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -10,7 +10,7 @@ SECRET_KEY = config('SECRET_KEY', default=secrets.token_urlsafe())
 
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv(), default='*')
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='*').split(' ')
 
 INSTALLED_APPS = [
     'django.contrib.admin',
