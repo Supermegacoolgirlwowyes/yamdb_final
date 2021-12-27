@@ -10,7 +10,7 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
     env_file:
-      - .env
+      - ../.env
 
   web:
     image: irinabalerina/yamdb_final:latest
@@ -18,7 +18,7 @@ services:
     depends_on:
       - db
     env_file:
-      - .env
+      - ../.env
     volumes:
       - static:/code/static/
       - media:/code/media/
@@ -33,6 +33,6 @@ services:
     depends_on:
       - web
     env_file:
-      - .env
+      - ../.env
     ports:
       - "80:80"
