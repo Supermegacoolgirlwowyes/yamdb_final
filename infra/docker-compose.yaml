@@ -24,7 +24,7 @@ services:
       - media:/code/media/
 
   nginx:
-    image: nginx:alpine
+    image: nginx:1.21.4-alpine
     restart: unless-stopped
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/conf.d/nginx.conf
