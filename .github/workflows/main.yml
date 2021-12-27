@@ -5,14 +5,12 @@ on: push
 jobs:
   tests:
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v2
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
         python-version: 3.8
-
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
@@ -65,11 +63,11 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
           passphrase: ${{ secrets.SSH_PASSPHRASE }}
-          stack_file_name: infra/docker-compose.yaml
+          stack_file_name: docker-compose.yaml
           script: |
             cd infra
             sudo docker-compose stop
-            sudo docker-compose rm -f web
+            sudo docker-compose rm -fs web
             sudo docker image rm ${{ secrets.DOCKER_USERNAME }}/yamdb_final
             echo DB_ENGINE=${{ secrets.DB_ENGINE }} > .env
             echo DB_NAME=${{ secrets.DB_NAME }} >> .env
