@@ -2,7 +2,7 @@ import os
 import secrets
 from datetime import timedelta
 
-from decouple import Csv, config
+from decouple import config
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
